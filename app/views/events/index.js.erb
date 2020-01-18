@@ -1,0 +1,2 @@
+$("#items").html("<%= escape_javascript( render(@events) || 'Nessun evento') %>");
+$("#paginate").html("<%= escape_javascript( paginate(@events, remote: true) ) %>");

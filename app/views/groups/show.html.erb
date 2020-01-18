@@ -1,0 +1,60 @@
+<% content_for :image do %>
+  <%= image_tag @group.picture.hero.url %>
+<% end %>
+<% content_for :title do %>
+  <%= @group.name %>
+<% end %>
+<% content_for :tags do %>
+  <%= "Musica" %>
+<% end %>
+<% content_for :date do %>
+  <%= @group.address %>
+<% end %>
+<% content_for :followbtn do %>
+  <div id="grp-follow" class="follow">
+  <% if user_signed_in? -%>
+    <% if @group.is_member?(current_user)  -%>
+      <%= render 'unfollow' %>
+    <% else -%>
+      <%= render 'follow' %>
+    <% end -%>
+  <% else -%>
+    <%= button_to 'Segui', new_user_session_path,  class: "btn large" %>
+  <% end-%>
+  </div>
+<% end %>
+<% content_for :description do %>
+  <p>
+    <%= @group.description %>
+  </p>
+<% end %>
+<% content_for :follow do %>
+  <%= "Seguono:"  %>
+<% end %>
+<% content_for :following do %>
+  <span class="badge" id="grp-following"><%= @group.members.count %></span>
+<% end %>
+<% content_for :followers do %>
+  <div id="grp-followers">
+    <%= render_members(@group.members) %>
+  </div>
+<% end %>
+<% content_for :buttons do %>
+  <% if user_signed_in? -%>
+    <% if current_user.admin_of?(@group) -%>
+      <%= link_to 'Edit', edit_group_path(@group) , class: "btn primary" %>
+      <%= link_to 'Edit members', group_members_path(@group), class: "btn primary"  %>
+    <% end -%>
+    <% if current_user.mod_of?(@group) -%>
+      <%= link_to "Add event", new_group_event_path(@group), class: "btn success" %>
+    <% end -%>
+  <% end -%>
+<% end %>
+<% content_for :sidebar do %>
+  <div id="sidebar" class="col-md-3 col-xs-12">
+    <%= render 'sidebar' %>
+  </div>
+<% end %>
+<% content_for :events do %>
+  <%= render_events @group.events %>
+<% end %>

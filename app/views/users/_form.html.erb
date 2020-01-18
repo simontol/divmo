@@ -1,0 +1,16 @@
+<% content_for :form_body do %>
+  <%= simple_form_for @user do |f| %>
+    <h4><%= @user.name %></h4>
+    <% if @user.picture.present? %>
+      <div class="input" ><%= image_tag @user.picture.thumb.url %></div>
+    <% end %>
+    <%= f.input :picture, as: :file %>
+    <%= f.input :birthdate, as: :string, input_html: { class: "datepicker" } %>
+    <%= f.input :gender , as: :radio_buttons , collection: ["Maschio", "Femmina", "NC"]%>
+    <%= f.input :hometown %>
+    <%= f.input :bio, as: :text, input_html: { class: "input-xxlarge" } %>
+    <%= f.input :interests , :input_html => { :value => @user.interests }   %>
+    <%= f.input :website %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>

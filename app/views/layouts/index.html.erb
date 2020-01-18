@@ -1,0 +1,19 @@
+<% content_for :page do %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <section>
+          <div>Categorie:</div>
+          <div>Tags:</div>
+        </section>
+      </div>
+      <div class="col-md-7">
+        <%= yield %>
+      </div>
+      <div id="sidebar"  class="col-md-3 col-xs-12">
+        <%= yield :sidebar %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= render :template => 'layouts/application' %>

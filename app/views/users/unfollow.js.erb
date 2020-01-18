@@ -1,0 +1,4 @@
+$("#usr-follow").html("<%= escape_javascript(render 'follow') %>");
+$("#usr-following").html("<%= @user.followers.count %>");
+$("#usr-followers").html("<%= escape_javascript(render_followers(@user.followers)) %>");
+$("[data-toggle='tooltip']").tooltip();

@@ -1,0 +1,4 @@
+$("#grp-follow").html("<%= escape_javascript(render 'follow') %>");
+$("#grp-following").html("<%= @group.members.count %>");
+$("#grp-followers").html("<%= escape_javascript(render_members(@group.members)) %>");
+$("[data-toggle='tooltip']").tooltip();

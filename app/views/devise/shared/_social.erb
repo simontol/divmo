@@ -1,0 +1,14 @@
+<div>
+<%- if devise_mapping.omniauthable? %>
+ <%- resource_class.omniauth_providers.each do |provider| %>
+ <% if provider.to_s.include? 'google_oauth2' %>
+ <a class="btn btn-social btn-<%= [provider.to_s.split('_')[0], '-plus'].join %>" href="<%= omniauth_authorize_path('user', provider) %>">
+ <i class="fa fa-<%= [provider.to_s.split('_')[0], '-plus'].join %>"></i>
+ <% else %>
+ <a class="btn btn-social btn-<%= provider.to_s %>" href="<%= omniauth_authorize_path('user', provider) %>">
+ <i class="fa fa-<%= provider.to_s %>"></i>
+ <% end %> Accedi con <%= provider.to_s.titleize.split[0] %>
+ </a>
+<% end -%>
+ <% end -%>
+</div>

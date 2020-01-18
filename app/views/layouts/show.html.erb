@@ -1,0 +1,42 @@
+<% content_for :page do %>
+  <div class="container-fluid">
+    <div class="row">
+      <div  class="col-md-9 col-xs-12">
+        <section>
+          <div class="hero">
+            <%= yield :image %>
+            <div class="overlay-title">
+              <%= yield :title %></div>
+            <div class="overlay-info">
+              <div class="showtags"><%= yield :tags %></div>
+              <div class="showdate"><i class="fa fa-calendar"></i>
+                <%= yield :date %></div>
+            </div>
+          </div>
+          <div>
+            <%= yield :followbtn  %>
+          </div>
+          <div class="description">
+            <p>
+              <%= yield :description %>
+            </p>
+            <div class="followers"><%= yield :follow  %>
+              <%= yield :following %>
+              <%= yield :followers %>
+            </div>
+          </div>
+          <div class="buttons">
+            <%= yield :buttons  %>
+          </div>
+        </section>
+      </div>
+      <%= yield :sidebar %>
+    </div>
+    <div class="row">
+      <div class="col-md-9 col-xs-12">
+        <%= yield :events %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= render :template => 'layouts/application' %>

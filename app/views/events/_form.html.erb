@@ -1,0 +1,14 @@
+<% content_for :form_body do %>
+  <%= simple_form_for([@group, @event]) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name, placeholder: 'Titolo evento' %>
+    <% if @event.picture.present? %>
+      <div class="input" ><%= image_tag @event.picture.thumb.url %></div>
+    <% end %>
+    <%= f.input :picture, as: :file, hint: @event.picture.url %>
+    <%= f.input :description, as: :text, input_html: { rows: "5" }, placeholder: 'Descrizione' %>
+    <%= f.input :start_time, as: :datetime_picker %>
+    <%= f.input :end_time, as: :datetime_picker %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>

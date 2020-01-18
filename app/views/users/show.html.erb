@@ -1,0 +1,75 @@
+<% content_for :image do %>
+  <%= image_tag @user.picture.hero.url %>
+<% end %>
+<% content_for :title do %>
+  <%= @user.name %>
+<% end %>
+<% content_for :tags do %>
+  <%= "Musica" %>
+<% end %>
+<% content_for :date do %>
+  <%= @user.hometown %>
+<% end %>
+<% content_for :followbtn do %>
+  <div id="usr-follow" class="follow">
+    <% if current_user.following?(@user) and @user != current_user  -%>
+      <%= render 'unfollow' %>
+    <% elsif @user != current_user -%>
+      <%= render 'follow' %>
+    <% end -%>
+  </div>
+<% end %>
+<% content_for :description do %>
+  <p>
+    <b>Nome:</b>
+    <%= @user.name %>
+  </p>
+  <p>
+    <%= @user.bio %>
+  </p>
+  <p>
+    <b>Sito web:</b>
+    <%= @user.website %>
+  </p>
+  <h5>Segue: (<%= @user.following.count %>)</h5>
+  <div><%= render_followers(@user.following) %></div>
+<% end %>
+<% content_for :follow do %>
+  <%= "Seguito da:"  %>
+<% end %>
+<% content_for :following do %>
+  <span class="badge" id="usr-following"><%= @user.followers.count %></span>
+<% end %>
+<% content_for :followers do %>
+  <div id="usr-followers">
+    <%= render_followers(@user.followers) %>
+  </div>
+<% end %>
+<% content_for :buttons do %>
+  <% if can? :update, @user -%>
+    <%= link_to 'Edit', edit_user_path(@user) %>
+  <% end -%>
+<% end %>
+<% content_for :sidebar do %>
+  <div id="sidebar" class="col-md-3 col-xs-12">
+    <%= render 'sidebar' %>
+  </div>
+<% end %>
+<% content_for :events do %>
+  <div>
+    <h4>Eventi creati:</h4>
+    <%= render_events @user.created_events %>
+  </div>
+  <div>
+    <h4>Partecipa a:</h4>
+    <%=  render_events @user.attending_events %>
+  </div>
+  <div>
+    <h4>Gruppi creati:</h4>
+    <%= render_groups @user.owned_groups %>
+  </div>
+  <div>
+    <h4>Gruppi che segue:</h4>
+    <%= render_groups @user.followed_groups %>
+  </div>
+<% end -%>

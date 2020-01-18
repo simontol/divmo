@@ -1,0 +1,116 @@
+// Content layout for show
+
+.info {
+	background: linear-gradient(#2e2e2e,#1a1a1a);
+	//border-bottom: 1px solid rgba(187,187,187,0.1);
+	padding: 12px 20px 15px;
+	border-radius: 4px 4px 0 0;
+	color: #FFF;
+
+	>h2 {
+		margin-top: 0;
+	}
+}
+
+//Info & description
+.hero {
+	float: left;
+	position: relative;
+	border-radius: 4px 4px 0 0;
+}
+
+.hero img {
+	width: 100%;
+	max-height: 320px;
+	border-radius: 4px 4px 0 0;
+}
+
+.overlay-title {
+	padding: 10px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	border-radius: 4px 4px 0 0;
+	background-color: black;
+	color: white;
+	opacity: 0.6;
+	filter:alpha(opacity=60);
+	font-size: 1.5em;
+}
+
+@media (max-width: 767px ) {
+	.overlay-title {
+		font-size: 1em;
+	}
+	.overlay-info {
+		font-size: 0.7em;
+	}
+}
+
+.overlay-info {
+	padding: 5px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	background-color: black;
+	color: white;
+	opacity: 0.6;
+	filter:alpha(opacity=60);
+}
+
+.showtags {
+	display: inline-block;
+}
+
+.showdate {
+	display: inline-block;
+	float: right;
+}
+
+.description {
+	padding: 15px;
+	color: #7d7d7d;
+}
+.buttons {
+	position: relative;
+	margin-top: 10px;
+	padding: 15px;
+}
+
+.follow {
+	position: relative;
+	top: 10px;
+	left: 15px;
+}
+
+//Sidebar
+
+
+.group {
+	text-align: center;
+	border-bottom: 1px solid #dfdfdf;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	img {
+		padding: 5px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	input {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+}
+
+.group-name {
+	font-size: 1.2em;
+}
+
+.map img {
+	width: 100%;
+	max-height: 300px;
+}
+
+.creator {
+	float: right;
+}

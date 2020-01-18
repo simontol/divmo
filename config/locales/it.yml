@@ -1,0 +1,30 @@
+# Sample localization file for Italian. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+it:
+  hello: "Ciao mondo"
+  time:
+    formats:
+      smart: "%a %d %b %H:%M"	
+      smart_month: "%a %d %H:%M"	
+      smart_year: "%a %d %b %Y %H:%M"	
+      smart_time: "%H:%M"
+
+  mongoid:
+    models:
+      event: "Evento"
+    attributes:
+      event:
+        name: "Nome"
+        picture: "Immagine"
+        description: "Descrizione"
+        start_time: "Inizio"
+        end_time: "Fine"
+        
+  simple_form:
+    error_notification: 
+      event: "Controlla gli errori:"
+
+  #Validation Errors
+  start_time_past: "non può essere nel passato"
+  end_time_past: "non può essere precedente all'inizio"

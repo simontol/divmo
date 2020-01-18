@@ -1,0 +1,22 @@
+<% content_for :sumimage do %>
+  <%= link_to image_tag(group.picture.thumb.url), group %>
+<% end %>
+<% content_for :sumtitle do %>
+  <%= link_to group.name , group %>
+<% end %>
+<% content_for :sumtime do %>
+<% end %>
+<% content_for :sumaddress do %>
+      <%= group.address %>
+<% end %>
+<% content_for :sumdescription do %>
+  <%= group.description.truncate(160) %>
+<% end %>
+<% content_for :sumfollowers do %>
+  <span class="attendees">Seguaci:
+    <span class="badge"><%= group.members.count %></span></span>
+<% end %>
+<% content_for :sumshare do %>
+  <a href="#"><i class="fa fa-share-alt"></i></a>
+<% end %>
+<%= render :template => "layouts/single"  %>

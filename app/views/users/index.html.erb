@@ -1,0 +1,5 @@
+<%= render @users %>
+<%= paginate @users %>
+<% content_for :sidebar do %>
+  <%= render 'sidebar' %>
+<% end %>

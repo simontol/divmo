@@ -1,0 +1,24 @@
+<% content_for :sumimage do %>
+  <%= link_to image_tag(user.picture.thumb.url), user %>
+<% end %>
+<% content_for :sumtitle do %>
+  <%= link_to user.name , user %>
+<% end %>
+<% content_for :sumtime do %>
+<% end %>
+<% content_for :sumaddress do %>
+      <%= user.hometown %>
+<% end %>
+<% content_for :sumdescription do %>
+  <%= user.bio.truncate(160) if user.bio %>
+<% end %>
+<% content_for :sumfollowers do %>
+  <span class="attendees">Seguaci:
+    <span class="badge"><%= user.followers.count %></span>  |  </span>
+    <span class="attendees">Segue:
+    <span class="badge"><%= user.following.count %></span></span>
+<% end %>
+<% content_for :sumshare do %>
+  <a href="#"><i class="fa fa-share-alt"></i></a>
+<% end %>
+<%= render :template => "layouts/single"  %>

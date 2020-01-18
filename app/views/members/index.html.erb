@@ -1,0 +1,23 @@
+<h1><%= @group.name %> members</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th></th>
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+    <td><%= link_to image_tag(member.user.picture.thumb.url), member.user %></td>
+    <td><%= link_to member.user.name , member.user %></td>
+    <td><%= member.user.email %></td>
+    <%= form_tag member_path(member), :method => :put do |f| %>
+    <td><%= select_tag :role ,options_for_select(["user", "moderator", "admin"], member.role) %></td>
+    <td><%= submit_tag 'Update' %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>

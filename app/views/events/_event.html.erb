@@ -1,0 +1,39 @@
+<% content_for :sumimage do %>
+  <%= link_to image_tag(event.picture.thumb.url), event %>
+<% end %>
+<% content_for :sumtitle do %>
+  <%= link_to event.name , event %>
+<% end %>
+<% content_for :sumtime do %>
+  <i class="fa fa-calendar"></i>
+  <%=  smart_time(event.start_time) %>
+  <i class="fa fa-long-arrow-right"></i>
+  <%= smart_date(event.start_time, event.end_time)  %>
+<% end %>
+<% content_for :sumaddress do %>
+  <% if event.group? %>
+    <%= link_to event.group.name , event.group %>
+    -
+    <%= event.group.address %>
+  <% else %>
+    <%= event.address %>
+  <% end %>
+<% end %>
+<% content_for :sumdescription do %>
+  <%= event.description.truncate(100) %>
+<% end %>
+<% content_for :sumfollowers do %>
+  <div class="sumshare">
+    <span class="badge"><%= event.attendees_count %></span>
+    <span class="attendees hidden-xs">Partecipanti</span>
+  <% end %>
+  <% content_for :sumshare do %>
+    <a href="#"><i class="slash"></i><i class="fa fa-share-alt"></i>
+      <span class="hidden-xs">Condividi</span></a>
+    <a href="#"><i class="slash"></i><i class="fa fa-plus"></i>
+      <span class="hidden-xs">Salva</span></a>
+    <a href="#"><i class="slash"></i><i class="fa fa-envelope"></i>
+      <span class="hidden-xs">Invita amici</span></a>
+  </div>
+<% end %>
+<%= render :template => "layouts/single"  %>

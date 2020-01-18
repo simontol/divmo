@@ -1,0 +1,10 @@
+<%= render @groups %>
+<p>
+<% if user_signed_in? -%>
+  <%= link_to 'New Group', new_group_path %>
+<% end -%>
+</p>
+<%= paginate @groups %>
+<% content_for :sidebar do %>
+  <%= render 'sidebar' %>
+<% end %>

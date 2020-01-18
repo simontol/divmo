@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h2>Eventi Vicini</h2>
+<%= render_events @events_near %>
+
+<h3>Questa settimana</h3>
+<div>
+  <%= render_events @this_week_events %>
+</div>
+<h3>Questo mese</h3>
+<div>
+  <%= render_events @this_month_events %>
+</div>
+
+</div>
+

@@ -1,0 +1,15 @@
+
+<section class="group">
+  <div class="btn-group" id="" >
+    <%= link_to 'Oggi', events_path(date: "today") , remote: true ,  data: { type: :script }, class: "btn btn-default" %>
+    <%= link_to 'Settimana', events_path(date: "week") , remote: true ,  data: { type: :script }, class: "btn btn-default" %>
+    <%= link_to 'Mese', events_path(date: "month") , remote: true ,  data: { type: :script }, class: "btn btn-default" %>
+  </div>
+  <div class="btn-group">
+    <%= link_to 'Tutti', events_path , remote: true ,  data: { type: :script }, class: "btn btn-default"  %>
+    <%= link_to 'Passati', events_path(date: "past") , remote: true ,  data: { type: :script }, class: "btn btn-default"  %>
+  </div>
+  <div>
+    
+  </div>
+</section>

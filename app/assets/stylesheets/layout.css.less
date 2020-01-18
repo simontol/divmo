@@ -1,0 +1,201 @@
+@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
+
+@grid-float-breakpoint: 992px;
+@red: #dd5555;
+@gray: #7d7d7d;
+@light-gray: #e2e2e2;
+@alt: #882222;
+@link-color: @red;
+
+// General layout
+body {
+  padding-top: 70px;
+  background: #f5f4f1 image-url("bg.png") repeat 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 60px;
+}
+
+.fill-height {
+  height:100%;
+  min-height:100%;
+}
+
+.fill-width {
+  width: 100%;
+}
+
+.highlight, section {
+  background-color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,.2);
+  margin-bottom: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+// Navbar
+
+.navbar-header {
+  //margin-top: -2px;
+  //padding: 0;
+}
+
+.navbar-default {
+  background-color: #FFF;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.26);
+}
+
+.navbar-brand img {
+  height: 32px;
+  margin-top: -7px;
+  margin-right: -10px;
+}
+
+.navbar-default .navbar-nav {
+  > li {
+    height: 50px;
+    >.dropdown-menu {
+      }
+
+    >a {
+    font-weight: normal;
+    outline: none;
+      &:hover {
+          color: @red;
+      }  
+      &.active {
+        //TODO: inset border or apply active to 'li' instead of 'a'
+        //border-bottom: 4px solid #FBAD2F;
+        color: @red;
+      }
+      &.dropdown-toggle {
+        padding: 13px 5px 9px 5px;
+        //margin-right: 10px;
+      }
+    }
+  }
+}
+
+.navbar-form {
+  margin-top: 9px;
+}
+
+.tab i.fa {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.2em
+} 
+
+#global-search-icon {
+  font-size: 28px;
+}
+
+#global-search {
+  background-color: #EBEBEB;
+}
+
+// Content layout for index
+
+.summary {
+  height: 160px;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  padding: 0px;
+}
+
+.sum-desc {
+  font-family: monospace;
+  font-size: 0.9em;
+  line-height: 120%;
+  color: #7d7d7d;
+  margin-bottom: 4px;
+  padding: 5px;
+}
+
+
+.sum-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.sum-title {
+    padding-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.6em;
+}
+
+.sum-footer {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  left: 128px;
+  padding: 8px;
+  //width: 70%;
+  height: 30px;
+  bottom: 8px;  
+  border-top: 1px solid @light-gray;
+  text-align: right;
+}
+
+
+.sum-info {
+  padding: 4px;
+  font-size: 0.9em;
+  color: @gray;
+}
+
+// Images
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  margin-top: -4px;
+  border-radius: 4px;
+  -moz-force-broken-image-icon: 1;
+}
+
+.cover {
+  float: left;
+  margin-right: 8px;
+  &>a >img {
+    height: 160px;
+    width: 120px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+}
+
+.icon-circle {
+  border: 1px solid @red;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.slash {
+  border-left: 1px solid @light-gray;
+  padding: 3px;
+}
+
+
+
+[class*="col-"] {
+  padding: 0px 5px 15px 5px;
+}
+
+//Kaminari pagination
+.pagination > .active > {
+  a, a:hover , a:focus , span , span:hover , span:focus {
+  background-color: @red;
+  border-color: @red; 
+  }
+}

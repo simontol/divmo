@@ -1,0 +1,9 @@
+<div id="items">
+<%= render @events || "Nessun evento" %>
+</div>
+<div id="paginate">
+<%= paginate( @events, remote: true ) %>
+</div>
+<% content_for :sidebar do %>
+  <%= render 'sidebar' %>
+<% end %>

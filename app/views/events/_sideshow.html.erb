@@ -1,0 +1,47 @@
+<% if @event.group? %>
+  <div class="col-md-3 col-xs-4">
+    <section class="group">
+      <h4><%= link_to @event.group.name , @event.group %></h4>
+      <%= link_to image_tag( @event.group.picture.logo.url , class: "img-responsive img-circle") , @event.group %>
+      <div id="grp-follow">
+        <% if user_signed_in? -%>
+          <% if @event.group.is_member?(current_user) -%>
+            <%= render 'groups/unfollow' %>
+          <% else -%>
+            <%= render 'groups/follow'  %>
+          <% end -%>
+        <% else -%>
+          <%= button_to 'Segui', new_user_session_path,  class: "btn large"  %>
+        <% end -%>
+      </section>
+    </div>
+  <% end %>
+  <div class="map col-md-3 col-xs-8">
+    <section>
+      <div class="sum-info">
+        <i class="fa fa-map-marker"></i>
+        <%= @event.group.address %>
+      </div>
+      <p>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{@event.group.coordinates[1]}%2C#{@event.group.coordinates[0]}" %>
+      </p>
+    </section>
+  </div>
+  <div class="creator col-md-3 col-xs-12">
+    <section>
+      <div class="sidebar-label">Creato da:</div>
+      <%= render partial: "shared/follower", object: @event.creator %>
+      <%= "  " + @event.creator.name %>
+      <div id="usr-follow">
+        <% if user_signed_in? -%>
+          <% if current_user.following?(@event.creator) -%>
+            <%= render partial: 'users/unfollow', locals: { user: @event.creator}  %>
+          <% else -%>
+            <%= render partial: 'users/follow', locals: { user: @event.creator}  %>
+          <% end -%>
+        <% else -%>
+          <%= button_to 'Segui', new_user_session_path,  class: "btn large"  %>
+        <% end -%>
+      </div>
+    </section>
+  </div>

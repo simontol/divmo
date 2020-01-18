@@ -1,0 +1,62 @@
+<% content_for :image do %>
+  <%= image_tag @event.picture.hero.url %>
+<% end %>
+<% content_for :title do %>
+  <%= @event.name %>
+<% end %>
+<% content_for :tags do %>
+  <%= "Musica, Rock, Live"  %>
+<% end %>
+<% content_for :date do %>
+  <%= smart_time(@event.start_time) %>
+<% end %>
+<% content_for :followbtn do %>
+  <div id="evt-follow" class="follow">
+    <% if user_signed_in? and @event.attendee?(current_user)  -%>
+      <%= render 'unattend' %>
+    <% elsif user_signed_in? -%>
+      <%= render 'attend' %>
+    <% else -%>
+      <%= button_to('Partecipa', new_user_session_path,  class: "btn btn-default large") %>
+    <% end -%>
+  </div>
+<% end %>
+<% content_for :description do %>
+  <p>
+    <%= @event.description %>
+  </p>
+  <p>
+    <b>Inizio:</b>
+    <%= smart_time(@event.start_time) %>
+  </p>
+  <p>
+    <b>Fine:</b>
+    <%= smart_time(@event.end_time) %>
+  </p>
+<% end %>
+<% content_for :follow do %>
+  <%= "Partecipanti:"  %>
+<% end %>
+<% content_for :following do %>
+  <span class="badge" id="evt-following"><%= @event.attendees_count %></span>
+<% end %>
+<% content_for :followers do %>
+  <div id="evt-followers">
+    <%= render_followers(@event.attendees) %>
+  </div>
+<% end %>
+<% content_for :buttons do %>
+  <% if user_signed_in? and current_user.can_modify?(@event) -%>
+    <%= link_to edit_event_path(@event),  class: "btn btn-primary" do %>
+      <i class="icon-edit icon-white"></i>
+      <%= 'Modifica' %>
+    <% end -%>
+    <%= link_to @event , method: :delete, class: "btn btn-danger" , data: { confirm: "Are you sure?" } do %>
+      <i class="icon-trash icon-white"></i>
+      <%= 'Elimina' %>
+    <% end -%>
+  <% end -%>
+<% end %>
+<% content_for :sidebar do %>
+  <%= render 'sideshow' %>
+<% end %>

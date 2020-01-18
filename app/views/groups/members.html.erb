@@ -1,0 +1,21 @@
+<h1><%= @group.name %> members</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th></th>
+  </tr>
+
+<% @group.members.each do |member| %>
+  <tr>
+    <td><%= link_to image_tag(member.user.picture.thumb.url), member.user %></td>
+    <td><%= link_to member.user.name , member.user %></td>
+    <td><%= member.user.email %></td>
+    <td><%= member.role %></td>
+    <td><%= link_to 'Moderator', update_member_path(member, :role => "moderator") %></td>
+  </tr>
+<% end %>
+</table>

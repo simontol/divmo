@@ -1,0 +1,4 @@
+$("#evt-follow").html("<%= escape_javascript(render('unattend')) %>");
+$("#evt-followers").html("<%= escape_javascript(render_followers(@event.attendees)) %>");
+$("#evt-following").html("<%= @event.attendees.count %>");
+$("[data-toggle='tooltip']").tooltip();

@@ -1,0 +1,5 @@
+<% content_for :form_title do %>
+  <%= "Nuovo Evento per "+ @event.group.name %>
+<% end %>
+<%= render 'form' %>
+<%= render template: "layouts/form" %>

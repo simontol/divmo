@@ -1,0 +1,19 @@
+<% content_for :form_body do %>
+  <%= simple_form_for @group do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name %>
+    <% if @group.picture.present? %>
+      <div class="input" ><%= image_tag @group.picture.thumb.url %></div>
+    <% end %>
+    <%= f.input :picture, as: :file, hint: @group.picture.url %>
+    <%= f.input :description, as: :text, input_html: { class: "xxlarge" }  %>
+    <%= f.input :type, as: :select, collection: ["Group", "Venue", "Artist"], include_blank: false %>
+    <%= f.input :category %>
+    <%= f.input :privacy , as: :radio_buttons , collection: ["OPEN", "CLOSED"]%>
+    <%= f.input :website, as: :url %>
+    <%= f.input :link %>
+    <legend>Location</legend>
+    <%= f.input :address %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>

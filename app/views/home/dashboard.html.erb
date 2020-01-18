@@ -1,0 +1,30 @@
+<h1>Dashboard friends, followed groups activities</h1>
+<%= @user.username %> <br/>
+<%= @client_address %>
+
+<div id="coordinates">
+<%=  %>
+</div>
+
+<h2>Eventi Vicini</h2>
+<%= render_events @events_near %>
+
+<h3>Questa settimana</h3>
+<div>
+  <%= render_events @this_week_events %>
+</div>
+<h3>Questo mese</h3>
+<div>
+  <%= render_events @this_month_events %>
+</div>
+<h2>Inviti</h2>
+<div>
+  <%= render_events @user.invited_events %>
+</div>
+
+
+<h2>Agenda</h2>
+<div>
+<%= render_events @user.attending_events %>
+</div>
+

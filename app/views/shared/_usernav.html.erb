@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <%= image_tag( current_user.picture.thumb.url , 
+              alt: current_user.name , title: current_user.name, class: "avatar", id: "me-icon") %>
+          <span class="select-icon hidden-md hidden-lg"> <%= current_user.username  %></span>
+    </a>
+    
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to(current_user) do %>
+          <i class="fa fa-user"></i>  Profilo
+        <% end -%>
+      </li>
+      <li >
+        <%= link_to(edit_user_registration_path) do %>
+        <i class="fa fa-gear"></i>  Impostazioni
+        <% end -%>
+      </li>
+      <li>
+        <%= link_to(destroy_user_session_path, :method=>'delete') do %>  
+        <i class="fa fa-power-off"></i>  Esci
+        <% end -%>      
+      </li>
+    </ul>
+  </li>
+  
+<% else %>
+  <li>
+  <%= content_tag :a, "Accedi", :href => "#dialog-login", :class => 'btn', :data => {:toggle => 'modal'} %> 
+  </li>
+  <li>
+    <%= link_to 'Registrati', new_user_registration_path %>
+  </li>
+<% end %>
+

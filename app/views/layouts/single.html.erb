@@ -1,0 +1,25 @@
+<section class="summary">
+  <div class="image cover"><%= yield_content! :sumimage %></div>
+  <div class="sum-wrap">
+    <div class="sum-header">
+      <div class="sum-title"><%= yield_content! :sumtitle %>
+      </div>
+      <div class="sum-info">
+        <div class="time">
+          <%= yield_content! :sumtime %>
+        </div>
+        <div class="address">
+          <i class="fa fa-map-marker"></i>
+          <%= yield_content! :sumaddress  %>
+        </div>
+      </div>
+    </div>
+    <div class="sum-desc hidden-xs">
+      <%= yield_content! :sumdescription %>
+    </div>
+    <div class="sum-footer">
+      <%= yield_content! :sumfollowers %>
+      <%= yield_content! :sumshare %>
+    </div>
+  </div>
+</section>
